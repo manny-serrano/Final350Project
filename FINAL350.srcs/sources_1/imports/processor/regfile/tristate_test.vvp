@@ -1,0 +1,342 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x13e727c50 .scope module, "tristate_buffer_32_tb" "tristate_buffer_32_tb" 2 1;
+ .timescale 0 0;
+v0x13e73e980_0 .var "enable", 0 0;
+v0x13e73ea10_0 .var "in", 31 0;
+v0x13e73eaa0_0 .net "out", 31 0, L_0x13e742440;  1 drivers
+S_0x13e727f90 .scope module, "uut" "tristate_buffer_32" 2 7, 3 1 0, S_0x13e727c50;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "in";
+    .port_info 1 /INPUT 1 "enable";
+    .port_info 2 /OUTPUT 32 "out";
+v0x13e73cec0_0 .net *"_ivl_103", 0 0, L_0x13e7412b0;  1 drivers
+v0x13e73cf70_0 .net *"_ivl_108", 0 0, L_0x13e741490;  1 drivers
+v0x13e73d020_0 .net *"_ivl_113", 0 0, L_0x13e741680;  1 drivers
+v0x13e73d0e0_0 .net *"_ivl_118", 0 0, L_0x13e741880;  1 drivers
+v0x13e73d190_0 .net *"_ivl_123", 0 0, L_0x13e741c20;  1 drivers
+v0x13e73d280_0 .net *"_ivl_128", 0 0, L_0x13e741a90;  1 drivers
+v0x13e73d330_0 .net *"_ivl_13", 0 0, L_0x13e73f080;  1 drivers
+v0x13e73d3e0_0 .net *"_ivl_133", 0 0, L_0x13e741da0;  1 drivers
+v0x13e73d490_0 .net *"_ivl_138", 0 0, L_0x13e7421a0;  1 drivers
+v0x13e73d5a0_0 .net *"_ivl_143", 0 0, L_0x13e741fe0;  1 drivers
+v0x13e73d650_0 .net *"_ivl_148", 0 0, L_0x13e742500;  1 drivers
+v0x13e73d700_0 .net *"_ivl_153", 0 0, L_0x13e742320;  1 drivers
+v0x13e73d7b0_0 .net *"_ivl_159", 0 0, L_0x13e742e60;  1 drivers
+v0x13e73d860_0 .net *"_ivl_18", 0 0, L_0x13e73f280;  1 drivers
+v0x13e73d910_0 .net *"_ivl_23", 0 0, L_0x13e73f450;  1 drivers
+v0x13e73d9c0_0 .net *"_ivl_28", 0 0, L_0x13e73f650;  1 drivers
+v0x13e73da70_0 .net *"_ivl_3", 0 0, L_0x13e73ec30;  1 drivers
+v0x13e73dc00_0 .net *"_ivl_33", 0 0, L_0x13e73f940;  1 drivers
+v0x13e73dc90_0 .net *"_ivl_38", 0 0, L_0x13e73fb80;  1 drivers
+v0x13e73dd40_0 .net *"_ivl_43", 0 0, L_0x13e73fd50;  1 drivers
+v0x13e73ddf0_0 .net *"_ivl_48", 0 0, L_0x13e73ff30;  1 drivers
+v0x13e73dea0_0 .net *"_ivl_53", 0 0, L_0x13e73fe90;  1 drivers
+v0x13e73df50_0 .net *"_ivl_58", 0 0, L_0x13e7402c0;  1 drivers
+v0x13e73e000_0 .net *"_ivl_63", 0 0, L_0x13e7404d0;  1 drivers
+v0x13e73e0b0_0 .net *"_ivl_68", 0 0, L_0x13e7406f0;  1 drivers
+v0x13e73e160_0 .net *"_ivl_73", 0 0, L_0x13e740990;  1 drivers
+v0x13e73e210_0 .net *"_ivl_78", 0 0, L_0x13e740c30;  1 drivers
+v0x13e73e2c0_0 .net *"_ivl_8", 0 0, L_0x13e73ee10;  1 drivers
+v0x13e73e370_0 .net *"_ivl_83", 0 0, L_0x13e73f7d0;  1 drivers
+v0x13e73e420_0 .net *"_ivl_88", 0 0, L_0x13e740d70;  1 drivers
+v0x13e73e4d0_0 .net *"_ivl_93", 0 0, L_0x13e740f20;  1 drivers
+v0x13e73e580_0 .net *"_ivl_98", 0 0, L_0x13e7410e0;  1 drivers
+v0x13e73e630_0 .net "enable", 0 0, v0x13e73e980_0;  1 drivers
+v0x13e73db10_0 .net "in", 31 0, v0x13e73ea10_0;  1 drivers
+v0x13e73e8c0_0 .net "out", 31 0, L_0x13e742440;  alias, 1 drivers
+L_0x13e73eb30 .part v0x13e73ea10_0, 0, 1;
+o0x130030040 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73ec30 .functor MUXZ 1, o0x130030040, L_0x13e73eb30, v0x13e73e980_0, C4<>;
+L_0x13e73ed50 .part v0x13e73ea10_0, 1, 1;
+o0x1300300a0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73ee10 .functor MUXZ 1, o0x1300300a0, L_0x13e73ed50, v0x13e73e980_0, C4<>;
+L_0x13e73ef30 .part v0x13e73ea10_0, 2, 1;
+o0x130030100 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f080 .functor MUXZ 1, o0x130030100, L_0x13e73ef30, v0x13e73e980_0, C4<>;
+L_0x13e73f1a0 .part v0x13e73ea10_0, 3, 1;
+o0x130030160 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f280 .functor MUXZ 1, o0x130030160, L_0x13e73f1a0, v0x13e73e980_0, C4<>;
+L_0x13e73f360 .part v0x13e73ea10_0, 4, 1;
+o0x1300301c0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f450 .functor MUXZ 1, o0x1300301c0, L_0x13e73f360, v0x13e73e980_0, C4<>;
+L_0x13e73f550 .part v0x13e73ea10_0, 5, 1;
+o0x130030220 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f650 .functor MUXZ 1, o0x130030220, L_0x13e73f550, v0x13e73e980_0, C4<>;
+L_0x13e73f730 .part v0x13e73ea10_0, 6, 1;
+o0x130030280 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f940 .functor MUXZ 1, o0x130030280, L_0x13e73f730, v0x13e73e980_0, C4<>;
+L_0x13e73fae0 .part v0x13e73ea10_0, 7, 1;
+o0x1300302e0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73fb80 .functor MUXZ 1, o0x1300302e0, L_0x13e73fae0, v0x13e73e980_0, C4<>;
+L_0x13e73fc20 .part v0x13e73ea10_0, 8, 1;
+o0x130030340 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73fd50 .functor MUXZ 1, o0x130030340, L_0x13e73fc20, v0x13e73e980_0, C4<>;
+L_0x13e73fdf0 .part v0x13e73ea10_0, 9, 1;
+o0x1300303a0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73ff30 .functor MUXZ 1, o0x1300303a0, L_0x13e73fdf0, v0x13e73e980_0, C4<>;
+L_0x13e73ffd0 .part v0x13e73ea10_0, 10, 1;
+o0x130030400 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73fe90 .functor MUXZ 1, o0x130030400, L_0x13e73ffd0, v0x13e73e980_0, C4<>;
+L_0x13e740160 .part v0x13e73ea10_0, 11, 1;
+o0x130030460 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7402c0 .functor MUXZ 1, o0x130030460, L_0x13e740160, v0x13e73e980_0, C4<>;
+L_0x13e740360 .part v0x13e73ea10_0, 12, 1;
+o0x1300304c0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7404d0 .functor MUXZ 1, o0x1300304c0, L_0x13e740360, v0x13e73e980_0, C4<>;
+L_0x13e740570 .part v0x13e73ea10_0, 13, 1;
+o0x130030520 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7406f0 .functor MUXZ 1, o0x130030520, L_0x13e740570, v0x13e73e980_0, C4<>;
+L_0x13e740400 .part v0x13e73ea10_0, 14, 1;
+o0x130030580 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e740990 .functor MUXZ 1, o0x130030580, L_0x13e740400, v0x13e73e980_0, C4<>;
+L_0x13e73f9e0 .part v0x13e73ea10_0, 15, 1;
+o0x1300305e0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e740c30 .functor MUXZ 1, o0x1300305e0, L_0x13e73f9e0, v0x13e73e980_0, C4<>;
+L_0x13e740cd0 .part v0x13e73ea10_0, 16, 1;
+o0x130030640 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e73f7d0 .functor MUXZ 1, o0x130030640, L_0x13e740cd0, v0x13e73e980_0, C4<>;
+L_0x13e740e80 .part v0x13e73ea10_0, 17, 1;
+o0x1300306a0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e740d70 .functor MUXZ 1, o0x1300306a0, L_0x13e740e80, v0x13e73e980_0, C4<>;
+L_0x13e741040 .part v0x13e73ea10_0, 18, 1;
+o0x130030700 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e740f20 .functor MUXZ 1, o0x130030700, L_0x13e741040, v0x13e73e980_0, C4<>;
+L_0x13e741210 .part v0x13e73ea10_0, 19, 1;
+o0x130030760 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7410e0 .functor MUXZ 1, o0x130030760, L_0x13e741210, v0x13e73e980_0, C4<>;
+L_0x13e7413f0 .part v0x13e73ea10_0, 20, 1;
+o0x1300307c0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7412b0 .functor MUXZ 1, o0x1300307c0, L_0x13e7413f0, v0x13e73e980_0, C4<>;
+L_0x13e7415e0 .part v0x13e73ea10_0, 21, 1;
+o0x130030820 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741490 .functor MUXZ 1, o0x130030820, L_0x13e7415e0, v0x13e73e980_0, C4<>;
+L_0x13e7417e0 .part v0x13e73ea10_0, 22, 1;
+o0x130030880 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741680 .functor MUXZ 1, o0x130030880, L_0x13e7417e0, v0x13e73e980_0, C4<>;
+L_0x13e7419f0 .part v0x13e73ea10_0, 23, 1;
+o0x1300308e0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741880 .functor MUXZ 1, o0x1300308e0, L_0x13e7419f0, v0x13e73e980_0, C4<>;
+L_0x13e741920 .part v0x13e73ea10_0, 24, 1;
+o0x130030940 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741c20 .functor MUXZ 1, o0x130030940, L_0x13e741920, v0x13e73e980_0, C4<>;
+L_0x13e741d00 .part v0x13e73ea10_0, 25, 1;
+o0x1300309a0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741a90 .functor MUXZ 1, o0x1300309a0, L_0x13e741d00, v0x13e73e980_0, C4<>;
+L_0x13e741f40 .part v0x13e73ea10_0, 26, 1;
+o0x130030a00 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741da0 .functor MUXZ 1, o0x130030a00, L_0x13e741f40, v0x13e73e980_0, C4<>;
+L_0x13e741e80 .part v0x13e73ea10_0, 27, 1;
+o0x130030a60 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e7421a0 .functor MUXZ 1, o0x130030a60, L_0x13e741e80, v0x13e73e980_0, C4<>;
+L_0x13e742280 .part v0x13e73ea10_0, 28, 1;
+o0x130030ac0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e741fe0 .functor MUXZ 1, o0x130030ac0, L_0x13e742280, v0x13e73e980_0, C4<>;
+L_0x13e742100 .part v0x13e73ea10_0, 29, 1;
+o0x130030b20 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e742500 .functor MUXZ 1, o0x130030b20, L_0x13e742100, v0x13e73e980_0, C4<>;
+L_0x13e742620 .part v0x13e73ea10_0, 30, 1;
+o0x130030b80 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e742320 .functor MUXZ 1, o0x130030b80, L_0x13e742620, v0x13e73e980_0, C4<>;
+LS_0x13e742440_0_0 .concat8 [ 1 1 1 1], L_0x13e73ec30, L_0x13e73ee10, L_0x13e73f080, L_0x13e73f280;
+LS_0x13e742440_0_4 .concat8 [ 1 1 1 1], L_0x13e73f450, L_0x13e73f650, L_0x13e73f940, L_0x13e73fb80;
+LS_0x13e742440_0_8 .concat8 [ 1 1 1 1], L_0x13e73fd50, L_0x13e73ff30, L_0x13e73fe90, L_0x13e7402c0;
+LS_0x13e742440_0_12 .concat8 [ 1 1 1 1], L_0x13e7404d0, L_0x13e7406f0, L_0x13e740990, L_0x13e740c30;
+LS_0x13e742440_0_16 .concat8 [ 1 1 1 1], L_0x13e73f7d0, L_0x13e740d70, L_0x13e740f20, L_0x13e7410e0;
+LS_0x13e742440_0_20 .concat8 [ 1 1 1 1], L_0x13e7412b0, L_0x13e741490, L_0x13e741680, L_0x13e741880;
+LS_0x13e742440_0_24 .concat8 [ 1 1 1 1], L_0x13e741c20, L_0x13e741a90, L_0x13e741da0, L_0x13e7421a0;
+LS_0x13e742440_0_28 .concat8 [ 1 1 1 1], L_0x13e741fe0, L_0x13e742500, L_0x13e742320, L_0x13e742e60;
+LS_0x13e742440_1_0 .concat8 [ 4 4 4 4], LS_0x13e742440_0_0, LS_0x13e742440_0_4, LS_0x13e742440_0_8, LS_0x13e742440_0_12;
+LS_0x13e742440_1_4 .concat8 [ 4 4 4 4], LS_0x13e742440_0_16, LS_0x13e742440_0_20, LS_0x13e742440_0_24, LS_0x13e742440_0_28;
+L_0x13e742440 .concat8 [ 16 16 0 0], LS_0x13e742440_1_0, LS_0x13e742440_1_4;
+L_0x13e742dc0 .part v0x13e73ea10_0, 31, 1;
+o0x130030be0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x13e742e60 .functor MUXZ 1, o0x130030be0, L_0x13e742dc0, v0x13e73e980_0, C4<>;
+S_0x13e706430 .scope generate, "tristates[0]" "tristates[0]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e705390 .param/l "i" 1 3 5, +C4<00>;
+v0x13e726030_0 .net *"_ivl_0", 0 0, L_0x13e73eb30;  1 drivers
+; Elide local net with no drivers, v0x13e7356e0_0 name=_ivl_1
+S_0x13e735790 .scope generate, "tristates[1]" "tristates[1]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e735970 .param/l "i" 1 3 5, +C4<01>;
+v0x13e735a00_0 .net *"_ivl_0", 0 0, L_0x13e73ed50;  1 drivers
+; Elide local net with no drivers, v0x13e735ab0_0 name=_ivl_1
+S_0x13e735b60 .scope generate, "tristates[2]" "tristates[2]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e735d50 .param/l "i" 1 3 5, +C4<010>;
+v0x13e735de0_0 .net *"_ivl_0", 0 0, L_0x13e73ef30;  1 drivers
+; Elide local net with no drivers, v0x13e735e90_0 name=_ivl_1
+S_0x13e735f40 .scope generate, "tristates[3]" "tristates[3]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e736110 .param/l "i" 1 3 5, +C4<011>;
+v0x13e7361b0_0 .net *"_ivl_0", 0 0, L_0x13e73f1a0;  1 drivers
+; Elide local net with no drivers, v0x13e736260_0 name=_ivl_1
+S_0x13e736310 .scope generate, "tristates[4]" "tristates[4]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e736520 .param/l "i" 1 3 5, +C4<0100>;
+v0x13e7365c0_0 .net *"_ivl_0", 0 0, L_0x13e73f360;  1 drivers
+; Elide local net with no drivers, v0x13e736650_0 name=_ivl_1
+S_0x13e736700 .scope generate, "tristates[5]" "tristates[5]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e7368d0 .param/l "i" 1 3 5, +C4<0101>;
+v0x13e736970_0 .net *"_ivl_0", 0 0, L_0x13e73f550;  1 drivers
+; Elide local net with no drivers, v0x13e736a20_0 name=_ivl_1
+S_0x13e736ad0 .scope generate, "tristates[6]" "tristates[6]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e736ca0 .param/l "i" 1 3 5, +C4<0110>;
+v0x13e736d40_0 .net *"_ivl_0", 0 0, L_0x13e73f730;  1 drivers
+; Elide local net with no drivers, v0x13e736df0_0 name=_ivl_1
+S_0x13e736ea0 .scope generate, "tristates[7]" "tristates[7]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e737070 .param/l "i" 1 3 5, +C4<0111>;
+v0x13e737110_0 .net *"_ivl_0", 0 0, L_0x13e73fae0;  1 drivers
+; Elide local net with no drivers, v0x13e7371c0_0 name=_ivl_1
+S_0x13e737270 .scope generate, "tristates[8]" "tristates[8]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e7364e0 .param/l "i" 1 3 5, +C4<01000>;
+v0x13e737530_0 .net *"_ivl_0", 0 0, L_0x13e73fc20;  1 drivers
+; Elide local net with no drivers, v0x13e7375f0_0 name=_ivl_1
+S_0x13e737690 .scope generate, "tristates[9]" "tristates[9]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e737850 .param/l "i" 1 3 5, +C4<01001>;
+v0x13e737900_0 .net *"_ivl_0", 0 0, L_0x13e73fdf0;  1 drivers
+; Elide local net with no drivers, v0x13e7379c0_0 name=_ivl_1
+S_0x13e737a60 .scope generate, "tristates[10]" "tristates[10]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e737c20 .param/l "i" 1 3 5, +C4<01010>;
+v0x13e737cd0_0 .net *"_ivl_0", 0 0, L_0x13e73ffd0;  1 drivers
+; Elide local net with no drivers, v0x13e737d90_0 name=_ivl_1
+S_0x13e737e30 .scope generate, "tristates[11]" "tristates[11]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e737ff0 .param/l "i" 1 3 5, +C4<01011>;
+v0x13e7380a0_0 .net *"_ivl_0", 0 0, L_0x13e740160;  1 drivers
+; Elide local net with no drivers, v0x13e738160_0 name=_ivl_1
+S_0x13e738200 .scope generate, "tristates[12]" "tristates[12]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e7383c0 .param/l "i" 1 3 5, +C4<01100>;
+v0x13e738470_0 .net *"_ivl_0", 0 0, L_0x13e740360;  1 drivers
+; Elide local net with no drivers, v0x13e738530_0 name=_ivl_1
+S_0x13e7385d0 .scope generate, "tristates[13]" "tristates[13]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e738790 .param/l "i" 1 3 5, +C4<01101>;
+v0x13e738840_0 .net *"_ivl_0", 0 0, L_0x13e740570;  1 drivers
+; Elide local net with no drivers, v0x13e738900_0 name=_ivl_1
+S_0x13e7389a0 .scope generate, "tristates[14]" "tristates[14]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e738b60 .param/l "i" 1 3 5, +C4<01110>;
+v0x13e738c10_0 .net *"_ivl_0", 0 0, L_0x13e740400;  1 drivers
+; Elide local net with no drivers, v0x13e738cd0_0 name=_ivl_1
+S_0x13e738d70 .scope generate, "tristates[15]" "tristates[15]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e738f30 .param/l "i" 1 3 5, +C4<01111>;
+v0x13e738fe0_0 .net *"_ivl_0", 0 0, L_0x13e73f9e0;  1 drivers
+; Elide local net with no drivers, v0x13e7390a0_0 name=_ivl_1
+S_0x13e739140 .scope generate, "tristates[16]" "tristates[16]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e739400 .param/l "i" 1 3 5, +C4<010000>;
+v0x13e7394b0_0 .net *"_ivl_0", 0 0, L_0x13e740cd0;  1 drivers
+; Elide local net with no drivers, v0x13e739540_0 name=_ivl_1
+S_0x13e7395d0 .scope generate, "tristates[17]" "tristates[17]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e737480 .param/l "i" 1 3 5, +C4<010001>;
+v0x13e739800_0 .net *"_ivl_0", 0 0, L_0x13e740e80;  1 drivers
+; Elide local net with no drivers, v0x13e7398c0_0 name=_ivl_1
+S_0x13e739960 .scope generate, "tristates[18]" "tristates[18]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e739b20 .param/l "i" 1 3 5, +C4<010010>;
+v0x13e739bd0_0 .net *"_ivl_0", 0 0, L_0x13e741040;  1 drivers
+; Elide local net with no drivers, v0x13e739c90_0 name=_ivl_1
+S_0x13e739d30 .scope generate, "tristates[19]" "tristates[19]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e739ef0 .param/l "i" 1 3 5, +C4<010011>;
+v0x13e739fa0_0 .net *"_ivl_0", 0 0, L_0x13e741210;  1 drivers
+; Elide local net with no drivers, v0x13e73a060_0 name=_ivl_1
+S_0x13e73a100 .scope generate, "tristates[20]" "tristates[20]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73a2c0 .param/l "i" 1 3 5, +C4<010100>;
+v0x13e73a370_0 .net *"_ivl_0", 0 0, L_0x13e7413f0;  1 drivers
+; Elide local net with no drivers, v0x13e73a430_0 name=_ivl_1
+S_0x13e73a4d0 .scope generate, "tristates[21]" "tristates[21]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73a690 .param/l "i" 1 3 5, +C4<010101>;
+v0x13e73a740_0 .net *"_ivl_0", 0 0, L_0x13e7415e0;  1 drivers
+; Elide local net with no drivers, v0x13e73a800_0 name=_ivl_1
+S_0x13e73a8a0 .scope generate, "tristates[22]" "tristates[22]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73aa60 .param/l "i" 1 3 5, +C4<010110>;
+v0x13e73ab10_0 .net *"_ivl_0", 0 0, L_0x13e7417e0;  1 drivers
+; Elide local net with no drivers, v0x13e73abd0_0 name=_ivl_1
+S_0x13e73ac70 .scope generate, "tristates[23]" "tristates[23]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73ae30 .param/l "i" 1 3 5, +C4<010111>;
+v0x13e73aee0_0 .net *"_ivl_0", 0 0, L_0x13e7419f0;  1 drivers
+; Elide local net with no drivers, v0x13e73afa0_0 name=_ivl_1
+S_0x13e73b040 .scope generate, "tristates[24]" "tristates[24]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73b200 .param/l "i" 1 3 5, +C4<011000>;
+v0x13e73b2b0_0 .net *"_ivl_0", 0 0, L_0x13e741920;  1 drivers
+; Elide local net with no drivers, v0x13e73b370_0 name=_ivl_1
+S_0x13e73b410 .scope generate, "tristates[25]" "tristates[25]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73b5d0 .param/l "i" 1 3 5, +C4<011001>;
+v0x13e73b680_0 .net *"_ivl_0", 0 0, L_0x13e741d00;  1 drivers
+; Elide local net with no drivers, v0x13e73b740_0 name=_ivl_1
+S_0x13e73b7e0 .scope generate, "tristates[26]" "tristates[26]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73b9a0 .param/l "i" 1 3 5, +C4<011010>;
+v0x13e73ba50_0 .net *"_ivl_0", 0 0, L_0x13e741f40;  1 drivers
+; Elide local net with no drivers, v0x13e73bb10_0 name=_ivl_1
+S_0x13e73bbb0 .scope generate, "tristates[27]" "tristates[27]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73bd70 .param/l "i" 1 3 5, +C4<011011>;
+v0x13e73be20_0 .net *"_ivl_0", 0 0, L_0x13e741e80;  1 drivers
+; Elide local net with no drivers, v0x13e73bee0_0 name=_ivl_1
+S_0x13e73bf80 .scope generate, "tristates[28]" "tristates[28]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73c140 .param/l "i" 1 3 5, +C4<011100>;
+v0x13e73c1f0_0 .net *"_ivl_0", 0 0, L_0x13e742280;  1 drivers
+; Elide local net with no drivers, v0x13e73c2b0_0 name=_ivl_1
+S_0x13e73c350 .scope generate, "tristates[29]" "tristates[29]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73c510 .param/l "i" 1 3 5, +C4<011101>;
+v0x13e73c5c0_0 .net *"_ivl_0", 0 0, L_0x13e742100;  1 drivers
+; Elide local net with no drivers, v0x13e73c680_0 name=_ivl_1
+S_0x13e73c720 .scope generate, "tristates[30]" "tristates[30]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73c8e0 .param/l "i" 1 3 5, +C4<011110>;
+v0x13e73c990_0 .net *"_ivl_0", 0 0, L_0x13e742620;  1 drivers
+; Elide local net with no drivers, v0x13e73ca50_0 name=_ivl_1
+S_0x13e73caf0 .scope generate, "tristates[31]" "tristates[31]" 3 5, 3 5 0, S_0x13e727f90;
+ .timescale 0 0;
+P_0x13e73ccb0 .param/l "i" 1 3 5, +C4<011111>;
+v0x13e73cd60_0 .net *"_ivl_0", 0 0, L_0x13e742dc0;  1 drivers
+; Elide local net with no drivers, v0x13e73ce20_0 name=_ivl_1
+    .scope S_0x13e727c50;
+T_0 ;
+    %pushi/vec4 305419896, 0, 32;
+    %store/vec4 v0x13e73ea10_0, 0, 32;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13e73e980_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 14 "$display", "Enable on: %h", v0x13e73eaa0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13e73e980_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 18 "$display", "Enable off: %h", v0x13e73eaa0_0 {0 0 0};
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tristate_buffer_tb.v";
+    "tristate_buffer.v";

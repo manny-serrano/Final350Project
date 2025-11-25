@@ -1,0 +1,16 @@
+alu_tb.v
+alu.v
+bitbybit_and_tb.v
+bitbybit_and.v
+bitwise_or_tb.v
+bitwise_or.v
+cla32bit_tb.v
+cla32bit.v
+cla8bit_tb.v
+cla8bit.v
+mux_32_tb.v
+mux32bit.v
+shiftleft_tb.v
+shiftleft.v
+shiftright_tb.v
+shiftright.v

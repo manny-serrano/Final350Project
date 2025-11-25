@@ -1,0 +1,11 @@
+decoder_5_tb.v
+decoder_5.v
+dffe_ref.v
+mux_32_tb.v
+mux32bit.v
+regfile_tb.v
+regfile.v
+register_32_tb.v
+register_32.v
+tristate_buffer_tb.v
+tristate_buffer.v
