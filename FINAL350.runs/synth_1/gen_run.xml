@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764112816">
-  <File Type="PA-TCL" Name="Wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Wrapper_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="Wrapper_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="Wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="Wrapper_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="Wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Wrapper_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764822941">
+  <File Type="PA-TCL" Name="top_camera_vga.tcl"/>
+  <File Type="REPORTS-TCL" Name="top_camera_vga_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top_camera_vga.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_camera_vga_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="top_camera_vga_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_camera_vga_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top_camera_vga.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_camera_vga_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_camera_vga_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/processor/RAM.v">
@@ -24,6 +24,15 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/master/processor/ROM.v"/>
         <Attr Name="ImportTime" Val="1764109045"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Vivado Timing files/Wrapper_timing.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/Vivado Timing Files/Vivado Timing files/Wrapper_timing.v"/>
+        <Attr Name="ImportTime" Val="1764110262"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -72,6 +81,20 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/multdiv/boothencoder.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/camera_capture.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/camera_vga_clock.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -165,6 +188,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/frame_buffer.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/multdiv/multdiv.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -222,6 +252,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/reset_sync.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/alu/shiftleft.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -252,10 +289,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Vivado Timing files/Wrapper_timing.v">
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/vga_controller.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/Vivado Timing Files/Vivado Timing files/Wrapper_timing.v"/>
-        <Attr Name="ImportTime" Val="1764110262"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/top_camera_vga.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -447,13 +489,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/ip/clk_wiz_1/clk_wiz_1.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Wrapper"/>
+      <Option Name="TopModule" Val="top_camera_vga"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
-  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/Vivado Timing files/Nexys-A7-100T-Master.xdc">
       <FileInfo>
@@ -467,16 +517,14 @@
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
-  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>

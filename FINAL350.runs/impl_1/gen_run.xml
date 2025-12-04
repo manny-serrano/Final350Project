@@ -1,80 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764112904">
-  <File Type="ROUTE-PWR" Name="Wrapper_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="Wrapper.tcl"/>
-  <File Type="BITSTR-MMI" Name="Wrapper.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="Wrapper_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="Wrapper_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="Wrapper_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="Wrapper_reports.tcl"/>
-  <File Type="OPT-TIMING" Name="Wrapper_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="Wrapper_opt.dcp"/>
-  <File Type="OPT-DRC" Name="Wrapper_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="Wrapper.hwdef"/>
-  <File Type="PWROPT-DCP" Name="Wrapper_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="Wrapper_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="Wrapper_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="Wrapper_placed.dcp"/>
-  <File Type="PLACE-IO" Name="Wrapper_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="Wrapper_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="Wrapper_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="Wrapper_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="Wrapper_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="Wrapper_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="Wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="Wrapper.bin"/>
-  <File Type="PLACE-TIMING" Name="Wrapper_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="Wrapper_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="Wrapper.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="Wrapper_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="Wrapper_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="Wrapper_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="Wrapper.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="Wrapper_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="Wrapper_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="Wrapper_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="Wrapper_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="Wrapper_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="Wrapper_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="Wrapper_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="Wrapper_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Wrapper_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Wrapper_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="Wrapper_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="Wrapper_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="Wrapper_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="Wrapper_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="Wrapper_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="Wrapper_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="Wrapper_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="Wrapper_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="Wrapper_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="Wrapper_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="Wrapper_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="Wrapper_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Wrapper_postroute_physopt_bb.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764823011">
+  <File Type="PA-TCL" Name="top_camera_vga.tcl"/>
+  <File Type="REPORTS-TCL" Name="top_camera_vga_reports.tcl"/>
+  <File Type="INIT-TIMING" Name="top_camera_vga_timing_summary_init.rpt"/>
+  <File Type="OPT-DCP" Name="top_camera_vga_opt.dcp"/>
+  <File Type="OPT-DRC" Name="top_camera_vga_drc_opted.rpt"/>
+  <File Type="OPT-UTIL" Name="top_camera_vga_utilization_opted.rpt"/>
+  <File Type="OPT-UTIL-PB" Name="top_camera_vga_utilization_opted.pb"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="top_camera_vga_methodology_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="top_camera_vga.hwdef"/>
+  <File Type="OPT-TIMING" Name="top_camera_vga_timing_summary_opted.rpt"/>
+  <File Type="OPT-RQA-PB" Name="top_camera_vga_rqa_opted.pb"/>
+  <File Type="PWROPT-DCP" Name="top_camera_vga_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="top_camera_vga_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="top_camera_vga_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="top_camera_vga_placed.dcp"/>
+  <File Type="PLACE-IO" Name="top_camera_vga_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="top_camera_vga_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="top_camera_vga_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="top_camera_vga_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="top_camera_vga_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="top_camera_vga_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="top_camera_vga_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="top_camera_vga_timing_summary_placed.rpt"/>
+  <File Type="PLACE-RQA-PB" Name="top_camera_vga_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="top_camera_vga_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="top_camera_vga_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="top_camera_vga_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="top_camera_vga_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="top_camera_vga_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="top_camera_vga_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="top_camera_vga_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="top_camera_vga_routed_bb.dcp"/>
+  <File Type="ROUTE-UTIL" Name="top_camera_vga_utilization_routed.rpt"/>
+  <File Type="ROUTE-UTIL-PB" Name="top_camera_vga_utilization_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="top_camera_vga_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="top_camera_vga_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="top_camera_vga_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="top_camera_vga_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="top_camera_vga_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="top_camera_vga_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="top_camera_vga_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="top_camera_vga_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="top_camera_vga_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="top_camera_vga_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="top_camera_vga_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="top_camera_vga_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="top_camera_vga_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="top_camera_vga_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="top_camera_vga_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="top_camera_vga_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="top_camera_vga_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="top_camera_vga_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="top_camera_vga_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-RQS-PB" Name="top_camera_vga_rqs_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="top_camera_vga_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="top_camera_vga_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Wrapper_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Wrapper_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Wrapper_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Wrapper_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="Wrapper.bit"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Wrapper_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Wrapper_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="Wrapper.nky"/>
-  <File Type="BITSTR-BMM" Name="Wrapper_bd.bmm"/>
-  <File Type="PDI-FILE" Name="Wrapper.pdi"/>
-  <File Type="RCFI_FILE" Name="Wrapper.rcfi"/>
-  <File Type="CFI_FILE" Name="Wrapper.cfi"/>
-  <File Type="RNPI_FILE" Name="Wrapper.rnpi"/>
-  <File Type="NPI_FILE" Name="Wrapper.npi"/>
-  <File Type="RBD_FILE" Name="Wrapper.rbd"/>
+  <File Type="BG-BIT" Name="top_camera_vga.bit"/>
+  <File Type="BG-BIN" Name="top_camera_vga.bin"/>
+  <File Type="BITSTR-MSK" Name="top_camera_vga.msk"/>
+  <File Type="BITSTR-RBT" Name="top_camera_vga.rbt"/>
+  <File Type="BITSTR-NKY" Name="top_camera_vga.nky"/>
+  <File Type="BITSTR-BMM" Name="top_camera_vga_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="top_camera_vga.mmi"/>
+  <File Type="PDI-FILE" Name="top_camera_vga.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="top_camera_vga_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="top_camera_vga_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="top_camera_vga.rcfi"/>
+  <File Type="CFI_FILE" Name="top_camera_vga.cfi"/>
+  <File Type="RNPI_FILE" Name="top_camera_vga.rnpi"/>
+  <File Type="RCDO-FILE" Name="top_camera_vga.rcdo"/>
+  <File Type="MARKER-RNPI-FILE" Name="top_camera_vga_markers.rnpi"/>
+  <File Type="MARKER-RCDO-FILE" Name="top_camera_vga_markers.rcdo"/>
+  <File Type="BOOT_RNPI_FILE" Name="top_camera_vga_boot.rnpi"/>
+  <File Type="BOOT_MARKER_RNPI_FILE" Name="top_camera_vga_boot_markers.rnpi"/>
+  <File Type="PL_RNPI_FILE" Name="top_camera_vga_pld.rnpi"/>
+  <File Type="PL_MARKER_RNPI_FILE" Name="top_camera_vga_pld_markers.rnpi"/>
+  <File Type="PL_MASK_RNPI_FILE" Name="top_camera_vga_pld_mask.rnpi"/>
+  <File Type="PL_SHUTDOWN_RNPI_FILE" Name="top_camera_vga_pld_shutdown.rnpi"/>
+  <File Type="PL_UNMASK_RNPI_FILE" Name="top_camera_vga_pld_unmask.rnpi"/>
+  <File Type="PL-RCDO-FILE" Name="top_camera_vga_pld.rcdo"/>
+  <File Type="PL-CLEAR-RCDO-FILE" Name="top_camera_vga_pld_clear.rcdo"/>
+  <File Type="PL_MARKER_RCDO_FILE" Name="top_camera_vga_pld_markers.rcdo"/>
+  <File Type="PL_MASK_RCDO_FILE" Name="top_camera_vga_pld_mask.rcdo"/>
+  <File Type="PL_UNMASK_MARKER_RCDO_FILE" Name="top_camera_vga_pld_unmask_markers.rcdo"/>
+  <File Type="PL_UNMASK_RCDO_FILE" Name="top_camera_vga_pld_unmask.rcdo"/>
+  <File Type="NPI_FILE" Name="top_camera_vga.npi"/>
+  <File Type="RBD_FILE" Name="top_camera_vga.rbd"/>
+  <File Type="MMI-FILE" Name="top_camera_vga.mmi"/>
+  <File Type="BIF-FILE" Name="top_camera_vga.bif"/>
+  <File Type="BOOT-BIF-FILE" Name="top_camera_vga_boot.bif"/>
+  <File Type="PL-BIF-FILE" Name="top_camera_vga_pld.bif"/>
+  <File Type="LTX-FILE" Name="top_camera_vga.ltx"/>
+  <File Type="BOOT-LTX-FILE" Name="top_camera_vga_boot.ltx"/>
+  <File Type="PL-LTX-FILE" Name="top_camera_vga_pld.ltx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="Wrapper.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="Wrapper.sysdef"/>
-  <File Type="BG-BGN" Name="Wrapper.bgn"/>
-  <File Type="BG-DRC" Name="Wrapper.drc"/>
-  <File Type="RDI-RDI" Name="Wrapper.vdi"/>
+  <File Type="BITSTR-LTX" Name="top_camera_vga.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="top_camera_vga.sysdef"/>
+  <File Type="BG-BGN" Name="top_camera_vga.bgn"/>
+  <File Type="BG-DRC" Name="top_camera_vga.drc"/>
+  <File Type="RDI-RDI" Name="top_camera_vga.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="top_camera_vga_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="top_camera_vga_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/processor/RAM.v">
@@ -90,6 +126,15 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/master/processor/ROM.v"/>
         <Attr Name="ImportTime" Val="1764109045"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Vivado Timing files/Wrapper_timing.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/Vivado Timing Files/Vivado Timing files/Wrapper_timing.v"/>
+        <Attr Name="ImportTime" Val="1764110262"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -138,6 +183,20 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/multdiv/boothencoder.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/camera_capture.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/camera_vga_clock.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -231,6 +290,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/frame_buffer.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/multdiv/multdiv.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -288,6 +354,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/reset_sync.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/processor/alu/shiftleft.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -318,10 +391,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Vivado Timing files/Wrapper_timing.v">
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/vga_controller.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/Vivado Timing Files/Vivado Timing files/Wrapper_timing.v"/>
-        <Attr Name="ImportTime" Val="1764110262"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/camera_vga/top_camera_vga.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -513,13 +591,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/ip/clk_wiz_1/clk_wiz_1.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Wrapper"/>
+      <Option Name="TopModule" Val="top_camera_vga"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
-  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/Vivado Timing files/Nexys-A7-100T-Master.xdc">
       <FileInfo>
@@ -533,16 +619,14 @@
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
-  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

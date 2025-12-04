@@ -128,9 +128,9 @@ module top_camera_vga (
     assign vga_b = vga_rgb[3:0];
 
     // Keep the existing DLX processor running at 40 MHz
-    Wrapper u_dlx_wrapper (
-        .clock(clk_40mhz),
-        .reset(cpu_reset)
+  Wrapper u_dlx_wrapper (
+        clk_40mhz,    // clock
+        cpu_reset     // reset
     );
 
     // Simple status LEDs

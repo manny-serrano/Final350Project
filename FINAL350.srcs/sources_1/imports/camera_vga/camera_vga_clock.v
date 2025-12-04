@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-
 /**
  * Generates the three clocks required by the design from the 100 MHz system clock.
  *  - 40 MHz for the DLX processor
@@ -17,7 +16,6 @@ module camera_vga_clock (
     output wire clk_25mhz,
     output wire locked
 );
-
     wire clkfb_int;
     wire clkfb_buf;
     wire clk_out40_int;
@@ -27,7 +25,6 @@ module camera_vga_clock (
     wire unused_clk_out4;
     wire unused_clk_out5;
     wire unused_clk_out6;
-
     MMCME2_BASE #(
         .BANDWIDTH("OPTIMIZED"),
         .CLKIN1_PERIOD(10.000),   // 100 MHz input
@@ -46,8 +43,6 @@ module camera_vga_clock (
         .CLKOUT6_DIVIDE(1)
     ) mmcm_inst (
         .CLKIN1(clk_in_100mhz),
-        .CLKIN2(1'b0),
-        .CLKINSEL(1'b1),
         .CLKFBIN(clkfb_buf),
         .CLKFBOUT(clkfb_int),
         .CLKOUT0(clk_out40_int),
@@ -65,26 +60,20 @@ module camera_vga_clock (
         .PWRDWN(1'b0),
         .RST(reset)
     );
-
     BUFG clkfb_bufg (
         .I(clkfb_int),
         .O(clkfb_buf)
     );
-
     BUFG bufg_clk40 (
         .I(clk_out40_int),
         .O(clk_40mhz)
     );
-
     BUFG bufg_clk24 (
         .I(clk_out24_int),
         .O(clk_24mhz)
     );
-
     BUFG bufg_clk25 (
         .I(clk_out25_int),
         .O(clk_25mhz)
     );
-
 endmodule
-

@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-
 /**
  * VGA controller for 640x480 @ 60 Hz timing.
  * Reads an 8-bit grayscale framebuffer that stores 320x240 pixels and
@@ -18,26 +17,21 @@ module vga_controller #(
     output reg  [ADDR_WIDTH-1:0] framebuf_rd_addr,
     input  wire [7:0]            framebuf_rd_data
 );
-
     localparam H_ACTIVE = 640;
     localparam H_FRONT  = 16;
     localparam H_SYNC   = 96;
     localparam H_BACK   = 48;
     localparam H_TOTAL  = H_ACTIVE + H_FRONT + H_SYNC + H_BACK; // 800
-
     localparam V_ACTIVE = 480;
     localparam V_FRONT  = 10;
     localparam V_SYNC   = 2;
     localparam V_BACK   = 33;
     localparam V_TOTAL  = V_ACTIVE + V_FRONT + V_SYNC + V_BACK; // 525
-
     reg [9:0] h_count = 10'd0;
     reg [9:0] v_count = 10'd0;
     reg [7:0] pixel_reg = 8'd0;
-
     wire display_active;
     assign display_active = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
-
     // Advance counters
     always @(posedge clk) begin
         if (reset) begin
@@ -48,15 +42,14 @@ module vga_controller #(
                 h_count <= 10'd0;
                 if (v_count == V_TOTAL - 1) begin
                     v_count <= 10'd0;
-                } else begin
+                end else begin
                     v_count <= v_count + 1'b1;
                 end
-            } else begin
+            end else begin
                 h_count <= h_count + 1'b1;
             end
         end
     end
-
     // Generate sync pulses (active low)
     always @(posedge clk) begin
         if (reset) begin
@@ -67,7 +60,6 @@ module vga_controller #(
             vsync <= ~((v_count >= (V_ACTIVE + V_FRONT)) && (v_count < (V_ACTIVE + V_FRONT + V_SYNC)));
         end
     end
-
     // Address generation: request the pixel for the NEXT clock tick
     wire [9:0] h_count_next;
     wire [9:0] v_count_next;
@@ -76,7 +68,6 @@ module vga_controller #(
     wire [8:0] row_idx;
     wire [16:0] row_base;
     wire [16:0] next_addr;
-
     assign h_count_next = (h_count == H_TOTAL - 1) ? 10'd0 : (h_count + 1'b1);
     assign v_count_next = (h_count == H_TOTAL - 1) ?
                           ((v_count == V_TOTAL - 1) ? 10'd0 : (v_count + 1'b1)) :
@@ -86,7 +77,6 @@ module vga_controller #(
     assign row_idx = v_count_next[9:1]; // divide by 2
     assign row_base = (row_idx << 8) + (row_idx << 6); // row * 320 = row*256 + row*64
     assign next_addr = row_base + col_idx;
-
     always @(posedge clk) begin
         if (reset) begin
             framebuf_rd_addr <= {ADDR_WIDTH{1'b0}};
@@ -96,7 +86,6 @@ module vga_controller #(
             framebuf_rd_addr <= {ADDR_WIDTH{1'b0}};
         end
     end
-
     // Pipeline pixel data (framebuf_rd_data is valid one clock after the address request)
     always @(posedge clk) begin
         if (reset) begin
@@ -107,7 +96,6 @@ module vga_controller #(
             pixel_reg <= 8'd0;
         end
     end
-
     always @(posedge clk) begin
         if (reset) begin
             rgb <= 12'd0;
@@ -117,6 +105,4 @@ module vga_controller #(
             rgb <= 12'd0;
         end
     end
-
 endmodule
-
