@@ -100,7 +100,7 @@ module vga_controller #(
         if (reset) begin
             rgb <= 12'd0;
         end else if (display_active) begin
-            rgb <= {3{pixel_reg[7:4]}};
+            rgb <= {3{pixel_reg[7:4]}};  // Back to reading from frame buffer
         end else begin
             rgb <= 12'd0;
         end

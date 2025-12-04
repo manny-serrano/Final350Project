@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764822941">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764824263">
   <File Type="PA-TCL" Name="top_camera_vga.tcl"/>
   <File Type="REPORTS-TCL" Name="top_camera_vga_reports.tcl"/>
   <File Type="RDS-RDS" Name="top_camera_vga.vds"/>
