@@ -6,9 +6,9 @@
  * performs simple 2x upscaling by duplicating pixels horizontally and vertically.
  */
 module vga_controller #(
-    parameter integer FRAME_WIDTH  = 320,
-    parameter integer FRAME_HEIGHT = 240,
-    parameter integer ADDR_WIDTH   = 17
+    parameter FRAME_WIDTH  = 320,
+    parameter FRAME_HEIGHT = 240,
+    parameter ADDR_WIDTH   = 17
 ) (
     input  wire                  clk,
     input  wire                  reset,
@@ -19,23 +19,24 @@ module vga_controller #(
     input  wire [7:0]            framebuf_rd_data
 );
 
-    localparam integer H_ACTIVE = 640;
-    localparam integer H_FRONT  = 16;
-    localparam integer H_SYNC   = 96;
-    localparam integer H_BACK   = 48;
-    localparam integer H_TOTAL  = H_ACTIVE + H_FRONT + H_SYNC + H_BACK; // 800
+    localparam H_ACTIVE = 640;
+    localparam H_FRONT  = 16;
+    localparam H_SYNC   = 96;
+    localparam H_BACK   = 48;
+    localparam H_TOTAL  = H_ACTIVE + H_FRONT + H_SYNC + H_BACK; // 800
 
-    localparam integer V_ACTIVE = 480;
-    localparam integer V_FRONT  = 10;
-    localparam integer V_SYNC   = 2;
-    localparam integer V_BACK   = 33;
-    localparam integer V_TOTAL  = V_ACTIVE + V_FRONT + V_SYNC + V_BACK; // 525
+    localparam V_ACTIVE = 480;
+    localparam V_FRONT  = 10;
+    localparam V_SYNC   = 2;
+    localparam V_BACK   = 33;
+    localparam V_TOTAL  = V_ACTIVE + V_FRONT + V_SYNC + V_BACK; // 525
 
     reg [9:0] h_count = 10'd0;
     reg [9:0] v_count = 10'd0;
     reg [7:0] pixel_reg = 8'd0;
 
-    wire display_active = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
+    wire display_active;
+    assign display_active = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
 
     // Advance counters
     always @(posedge clk) begin
@@ -68,18 +69,23 @@ module vga_controller #(
     end
 
     // Address generation: request the pixel for the NEXT clock tick
-    wire [9:0] h_count_next = (h_count == H_TOTAL - 1) ? 10'd0 : (h_count + 1'b1);
-    wire [9:0] v_count_next = (h_count == H_TOTAL - 1) ?
-                              ((v_count == V_TOTAL - 1) ? 10'd0 : (v_count + 1'b1)) :
-                              v_count;
+    wire [9:0] h_count_next;
+    wire [9:0] v_count_next;
+    wire next_active;
+    wire [8:0] col_idx;
+    wire [8:0] row_idx;
+    wire [16:0] row_base;
+    wire [16:0] next_addr;
 
-    wire next_active = (h_count_next < H_ACTIVE) && (v_count_next < V_ACTIVE);
-
-    wire [8:0] col_idx = h_count_next[9:1]; // divide by 2
-    wire [8:0] row_idx = v_count_next[9:1]; // divide by 2
-
-    wire [16:0] row_base = (row_idx << 8) + (row_idx << 6); // row * 320 = row*256 + row*64
-    wire [16:0] next_addr = row_base + col_idx;
+    assign h_count_next = (h_count == H_TOTAL - 1) ? 10'd0 : (h_count + 1'b1);
+    assign v_count_next = (h_count == H_TOTAL - 1) ?
+                          ((v_count == V_TOTAL - 1) ? 10'd0 : (v_count + 1'b1)) :
+                          v_count;
+    assign next_active = (h_count_next < H_ACTIVE) && (v_count_next < V_ACTIVE);
+    assign col_idx = h_count_next[9:1]; // divide by 2
+    assign row_idx = v_count_next[9:1]; // divide by 2
+    assign row_base = (row_idx << 8) + (row_idx << 6); // row * 320 = row*256 + row*64
+    assign next_addr = row_base + col_idx;
 
     always @(posedge clk) begin
         if (reset) begin
