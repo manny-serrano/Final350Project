@@ -4,9 +4,10 @@
  * Simple true dual-port frame buffer inferred from block RAM.
  * Port A: write side (camera clock domain)
  * Port B: read side (VGA clock domain)
+ * Default data width is 16 bits to hold RGB565 pixels.
  */
 module frame_buffer #(
-    parameter integer DATA_WIDTH = 8,
+    parameter integer DATA_WIDTH = 16,
     parameter integer ADDR_WIDTH = 17,
     parameter integer DEPTH      = 76800
 ) (

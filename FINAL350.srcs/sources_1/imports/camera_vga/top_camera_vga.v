@@ -71,11 +71,11 @@ module top_camera_vga (
     // Frame buffer wiring
     wire                     framebuf_we;
     wire [FRAME_ADDR_WIDTH-1:0] framebuf_wr_addr;
-    wire [7:0]               framebuf_wr_data;
+    wire [15:0]              framebuf_wr_data;
     wire                     frame_capture_done;
 
     wire [FRAME_ADDR_WIDTH-1:0] framebuf_rd_addr;
-    wire [7:0]               framebuf_rd_data;
+    wire [15:0]              framebuf_rd_data;
 
     camera_capture #(
         .FRAME_WIDTH(FRAME_WIDTH),
@@ -94,7 +94,7 @@ module top_camera_vga (
     );
 
     frame_buffer #(
-        .DATA_WIDTH(8),
+        .DATA_WIDTH(16),
         .ADDR_WIDTH(FRAME_ADDR_WIDTH),
         .DEPTH(FRAME_BUFFER_DEPTH)
     ) u_frame_buffer (

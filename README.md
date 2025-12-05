@@ -2,7 +2,7 @@
 
 ## Overview
 
-Connects an OV7670 camera module to the VGA port on the Nexys A7 board to display a live grayscale video feed currently.  
+Connects an OV7670 camera module to the VGA port on the Nexys A7 board to display a live RGB video feed (RGB565 captured, converted to 12-bit VGA).  
 
 
 ## What It Does
@@ -10,7 +10,7 @@ Connects an OV7670 camera module to the VGA port on the Nexys A7 board to displa
 - Captures live video from OV7670 camera at 320x240 resolution
 - Displays the feed on a VGA monitor at 640x480 (each pixel doubled in both dimensions)
 - Runs continuously at approximately 30 fps
-- Outputs grayscale video (8-bit per pixel)
+- Stores RGB565 pixels and maps them to the Nexys A7 12-bit RGB interface (full color)
 - DLX processor remains operational and unaffected
 
 ## Project Structure
@@ -33,19 +33,19 @@ All source files are located in `FINAL350.srcs/sources_1/imports/camera_vga/`
 **camera_capture.v**
 - Interfaces with OV7670 camera signals (PCLK, HREF, VSYNC)
 - Performs downsampling from 640x480 to 320x240 by skipping alternate rows and columns
-- Writes grayscale pixel data to frame buffer
-- Operates in 24 MHz clock domain
+- Packs two successive bytes into RGB565 pixels and writes them to the frame buffer
+- Operates in the camera’s PCLK domain
 
 **frame_buffer.v**
-- Dual-port block RAM (76,800 bytes)
-- Port A: Camera writes at 24 MHz
+- Dual-port block RAM (153,600 bytes @ 16 bits)
+- Port A: Camera writes at PCLK (~24 MHz)
 - Port B: VGA reads at 25 MHz
-- Stores 320x240 grayscale image (8-bit per pixel)
+- Stores 320x240 RGB565 image (16 bits per pixel)
 
 **vga_controller.v**
 - Generates standard 640x480 @ 60Hz VGA timing
 - Reads from frame buffer and duplicates pixels 2x2 for scaling
-- Converts 8-bit grayscale to 12-bit RGB output
+- Converts RGB565 words to the board’s 12-bit RGB output (4 bits/channel)
 - Operates in 25 MHz clock domain
 
 **top_camera_vga.v**
@@ -66,23 +66,23 @@ All source files are located in `FINAL350.srcs/sources_1/imports/camera_vga/`
 
 The video pipeline works as follows:
 
-1. OV7670 camera captures 640x480 frames and outputs pixel data on an 8-bit bus synchronized to its PCLK (approximately 24 MHz)
+1. OV7670 camera captures 640x480 frames and outputs pixel data on an 8-bit bus synchronized to its PCLK (approximately 24 MHz). The camera’s default RGB565 format sends each pixel as two successive bytes.
 
-2. camera_capture module samples this data stream:
+2. `camera_capture` samples this stream:
    - Monitors VSYNC to detect frame boundaries
    - Monitors HREF to detect valid line data
    - Skips every other row and every other pixel
-   - Writes resulting 320x240 grayscale bytes to frame buffer
+   - Packs each retained pixel’s two bytes into RGB565 and writes it to the frame buffer
 
-3. Dual-port frame buffer stores one complete frame (76,800 bytes):
-   - Write port connected to camera capture (24 MHz domain)
-   - Read port connected to VGA controller (25 MHz domain)
-   - No synchronization needed between domains
+3. Dual-port frame buffer stores one complete 320x240x16-bit frame (153,600 bytes):
+   - Write port connected to the camera domain
+   - Read port connected to the VGA controller (25 MHz)
+   - Independent clocks, so no extra CDC logic is required
 
 4. VGA controller generates 640x480 timing:
-   - Reads pixels from frame buffer during active display region
+   - Reads pixels from the frame buffer during the active video region
    - Duplicates each 320x240 pixel into a 2x2 block for 640x480 output
-   - Converts grayscale value to RGB by replicating across all color channels
+   - Converts each RGB565 word into the board’s 4:4:4 RGB signals
 
 ## Camera Wiring
 
@@ -118,7 +118,32 @@ Bottom row:
 
 Power: Pin 11 (GND), Pin 12 (3.3V)
 
-Note: SCCB (I2C) pins are not connected in this version. Camera uses power-on defaults.
+#### 18-Pin OV7670 Header Reference
+
+Most OV7670 breakouts expose an 18-pin, dual-row header. Match the pins as shown below:
+
+| Camera Pin | Signal | Connect To |
+| ---------- | ------ | ---------- |
+| 1 | SIO_C | leave floating (future SCCB) |
+| 2 | SIO_D | leave floating (future SCCB) |
+| 3 | VSYNC | JB3 / FPGA pin G16 (`cam_vsync`) |
+| 4 | HREF | JB2 / F16 (`cam_href`) |
+| 5 | PCLK | JB1 / D14 (`cam_pclk`) |
+| 6 | XCLK | JB4 / H14 (`cam_xclk`, 24 MHz output) |
+| 7 | D7 | JA10 / G18 (`cam_data[7]`) |
+| 8 | D6 | JA9 / F18 (`cam_data[6]`) |
+| 9 | D5 | JA8 / E17 (`cam_data[5]`) |
+| 10 | D4 | JA7 / D17 (`cam_data[4]`) |
+| 11 | D3 | JA4 / G17 (`cam_data[3]`) |
+| 12 | D2 | JA3 / E18 (`cam_data[2]`) |
+| 13 | D1 | JA2 / D18 (`cam_data[1]`) |
+| 14 | D0 | JA1 / C17 (`cam_data[0]`) |
+| 15 | RESET | JB7 / E16 (`cam_reset`, hold high) |
+| 16 | PWDN | JB8 / F13 (`cam_pwdn`, hold low) |
+| 17 | 3V3 | Pmod 3V3 |
+| 18 | GND | Pmod GND |
+
+Note: SCCB (I2C) pins are not connected in this version. Camera uses power-on defaults, which typically yield RGB565 output suitable for this pipeline.
 
 ## LED Status Indicators (planned)
 
@@ -170,8 +195,8 @@ Resolution Scaling:
 - VGA duplicates each stored pixel 2x horizontally and 2x vertically
 
 Memory Usage:
-- Frame buffer: 76,800 bytes (320 * 240 * 8 bits)
-- Fits comfortably in Nexys A7 block RAM (4,860 Kbits available)
+- Frame buffer: 153,600 bytes (320 * 240 * 16 bits)
+- Still fits comfortably in Nexys A7 block RAM (4,860 Kbits available)
 - Leaves plenty of BRAM for other uses
 
 Processor Integration:

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 /**
  * VGA controller for 640x480 @ 60 Hz timing.
- * Reads an 8-bit grayscale framebuffer that stores 320x240 pixels and
+ * Reads a 16-bit RGB565 framebuffer that stores 320x240 pixels and
  * performs simple 2x upscaling by duplicating pixels horizontally and vertically.
  */
 module vga_controller #(
@@ -15,7 +15,7 @@ module vga_controller #(
     output reg                   vsync,
     output reg  [11:0]           rgb,
     output reg  [ADDR_WIDTH-1:0] framebuf_rd_addr,
-    input  wire [7:0]            framebuf_rd_data
+    input  wire [15:0]           framebuf_rd_data
 );
     localparam H_ACTIVE = 640;
     localparam H_FRONT  = 16;
@@ -29,7 +29,7 @@ module vga_controller #(
     localparam V_TOTAL  = V_ACTIVE + V_FRONT + V_SYNC + V_BACK; // 525
     reg [9:0] h_count = 10'd0;
     reg [9:0] v_count = 10'd0;
-    reg [7:0] pixel_reg = 8'd0;
+    reg [15:0] pixel_reg = 16'd0;
     wire display_active;
     assign display_active = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
     // Advance counters
@@ -89,18 +89,23 @@ module vga_controller #(
     // Pipeline pixel data (framebuf_rd_data is valid one clock after the address request)
     always @(posedge clk) begin
         if (reset) begin
-            pixel_reg <= 8'd0;
+            pixel_reg <= 16'd0;
         end else if (display_active) begin
             pixel_reg <= framebuf_rd_data;
         end else begin
-            pixel_reg <= 8'd0;
+            pixel_reg <= 16'd0;
         end
     end
+
+    wire [4:0] r5 = pixel_reg[15:11];
+    wire [5:0] g6 = pixel_reg[10:5];
+    wire [4:0] b5 = pixel_reg[4:0];
+
     always @(posedge clk) begin
         if (reset) begin
             rgb <= 12'd0;
         end else if (display_active) begin
-            rgb <= {3{pixel_reg[7:4]}};  // Back to reading from frame buffer
+            rgb <= {r5[4:1], g6[5:2], b5[4:1]};
         end else begin
             rgb <= 12'd0;
         end
