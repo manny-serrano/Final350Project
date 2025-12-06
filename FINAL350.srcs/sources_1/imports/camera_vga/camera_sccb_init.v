@@ -54,33 +54,33 @@ module camera_sccb_init #(
 
     // Register table (addr,data)
     localparam integer NUM_WRITES = 24;
-    reg [15:0] table [0:NUM_WRITES-1];
+    reg [15:0] reg_table [0:NUM_WRITES-1];
     initial begin
-        table[0]  = {8'h12, 8'h80}; // COM7 reset
-        table[1]  = {8'h12, 8'h04}; // COM7 RGB
-        table[2]  = {8'h3a, 8'h04}; // TSLB: correct UV ordering
-        table[3]  = {8'h40, 8'hd0}; // COM15: full range, RGB565
-        table[4]  = {8'h3d, 8'h88}; // COM13: gamma/UV enable
-        table[5]  = {8'h13, 8'he5}; // COM8: AGC AEC AWB on
-        table[6]  = {8'h6f, 8'h9f}; // AWB control
-        table[7]  = {8'h3e, 8'h19}; // COM14: scaling, PCLK divide
-        table[8]  = {8'h70, 8'h3a}; // Scaling X
-        table[9]  = {8'h71, 8'h35}; // Scaling Y
-        table[10] = {8'h72, 8'h11}; // Downsample control
-        table[11] = {8'h73, 8'hf0}; // PCLK divide
-        table[12] = {8'ha2, 8'h02}; // PCLK delay
-        table[13] = {8'h11, 8'h01}; // CLKRC: prescale /2 (24 MHz -> 12 MHz PCLK max)
-        table[14] = {8'h0c, 8'h04}; // COM3: scaling enable
-        table[15] = {8'h42, 8'h00}; // COM17: disable test bar
+        reg_table[0]  = {8'h12, 8'h80}; // COM7 reset
+        reg_table[1]  = {8'h12, 8'h04}; // COM7 RGB
+        reg_table[2]  = {8'h3a, 8'h04}; // TSLB: correct UV ordering
+        reg_table[3]  = {8'h40, 8'hd0}; // COM15: full range, RGB565
+        reg_table[4]  = {8'h3d, 8'h88}; // COM13: gamma/UV enable
+        reg_table[5]  = {8'h13, 8'he5}; // COM8: AGC AEC AWB on
+        reg_table[6]  = {8'h6f, 8'h9f}; // AWB control
+        reg_table[7]  = {8'h3e, 8'h19}; // COM14: scaling, PCLK divide
+        reg_table[8]  = {8'h70, 8'h3a}; // Scaling X
+        reg_table[9]  = {8'h71, 8'h35}; // Scaling Y
+        reg_table[10] = {8'h72, 8'h11}; // Downsample control
+        reg_table[11] = {8'h73, 8'hf0}; // PCLK divide
+        reg_table[12] = {8'ha2, 8'h02}; // PCLK delay
+        reg_table[13] = {8'h11, 8'h01}; // CLKRC: prescale /2 (24 MHz -> 12 MHz PCLK max)
+        reg_table[14] = {8'h0c, 8'h04}; // COM3: scaling enable
+        reg_table[15] = {8'h42, 8'h00}; // COM17: disable test bar
         // Color matrix / gamma (good baseline)
-        table[16] = {8'h4f, 8'h80}; // MTX1
-        table[17] = {8'h50, 8'h80}; // MTX2
-        table[18] = {8'h51, 8'h05}; // MTX3
-        table[19] = {8'h52, 8'h22}; // MTX4
-        table[20] = {8'h53, 8'h5e}; // MTX5
-        table[21] = {8'h54, 8'h80}; // MTX6
-        table[22] = {8'h58, 8'h9e}; // MTXS
-        table[23] = {8'h3f, 8'h0a}; // Edge enhancement / denoise
+        reg_table[16] = {8'h4f, 8'h80}; // MTX1
+        reg_table[17] = {8'h50, 8'h80}; // MTX2
+        reg_table[18] = {8'h51, 8'h05}; // MTX3
+        reg_table[19] = {8'h52, 8'h22}; // MTX4
+        reg_table[20] = {8'h53, 8'h5e}; // MTX5
+        reg_table[21] = {8'h54, 8'h80}; // MTX6
+        reg_table[22] = {8'h58, 8'h9e}; // MTXS
+        reg_table[23] = {8'h3f, 8'h0a}; // Edge enhancement / denoise
     end
 
     // State machine (Verilog-2001 style)
@@ -105,7 +105,7 @@ module camera_sccb_init #(
     always @* begin
         cur_bit = 1'b1;
         if (state == ST_DEV) begin
-            cur_bit = (8'h42 << bit_idx) & 8'h80 ? 1'b1 : 1'b0;
+            cur_bit = (((8'h42 << bit_idx) & 8'h80) != 0) ? 1'b1 : 1'b0;
         end else if (state == ST_REG) begin
             cur_bit = cur_word[15 - bit_idx];
         end else if (state == ST_DATA) begin
@@ -123,7 +123,7 @@ module camera_sccb_init #(
             phase        <= 2'd0;
             bit_idx      <= 5'd0;
             powerup_wait <= 8'd0;
-            cur_word     <= table[0];
+            cur_word     <= reg_table[0];
         end else if (done) begin
             // hold lines released
             scl_oe <= 1'b0;
@@ -195,7 +195,7 @@ module camera_sccb_init #(
                     end else begin
                         idx      <= idx + 1'b1;
                         state    <= ST_START;
-                        cur_word <= table[idx + 1'b1];
+                        cur_word <= reg_table[idx + 1'b1];
                     end
                 end
                 ST_DONE: begin
