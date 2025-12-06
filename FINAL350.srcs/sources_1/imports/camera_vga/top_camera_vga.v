@@ -7,6 +7,8 @@ module top_camera_vga (
     input  wire        cam_href,
     input  wire        cam_vsync,
     input  wire [7:0]  cam_data,
+    inout  wire        cam_sioc,     // new SCCB clock
+    inout  wire        cam_siod,     // new SCCB data
     output wire        cam_xclk,
     output wire        cam_reset,
     output wire        cam_pwdn,
@@ -67,6 +69,19 @@ module top_camera_vga (
     assign cam_xclk  = clk_24mhz;
     assign cam_pwdn  = 1'b0;       // keep camera powered
     assign cam_reset = global_reset_n;
+
+    // SCCB initializer (configure OV7670 for RGB565 full range)
+    wire sccb_done;
+    camera_sccb_init #(
+        .CLK_HZ(24_000_000),
+        .SCL_HZ(100_000)
+    ) u_sccb_init (
+        .clk(clk_24mhz),
+        .reset(~global_reset_n), // active high
+        .sioc(cam_sioc),
+        .siod(cam_siod),
+        .done(sccb_done)
+    );
 
     // Frame buffer wiring
     wire                     framebuf_we;
@@ -162,7 +177,8 @@ module top_camera_vga (
     assign led[2]     = frame_toggle;
     assign led[3]     = pclk_activity[15];
     assign led[4]     = ~global_reset_n;
-    assign led[15:5]  = 11'd0;
+    assign led[5]     = sccb_done;
+    assign led[15:6]  = 10'd0;
 
 endmodule
 

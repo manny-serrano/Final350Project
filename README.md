@@ -124,8 +124,8 @@ Most OV7670 breakouts expose an 18-pin, dual-row header. Match the pins as shown
 
 | Camera Pin | Signal | Connect To |
 | ---------- | ------ | ---------- |
-| 1 | SIO_C | leave floating (future SCCB) |
-| 2 | SIO_D | leave floating (future SCCB) |
+| 1 | SIO_C | JB9 / G13 (`cam_sioc`, SCCB clock) |
+| 2 | SIO_D | JB10 / G15 (`cam_siod`, SCCB data) |
 | 3 | VSYNC | JB3 / FPGA pin G16 (`cam_vsync`) |
 | 4 | HREF | JB2 / F16 (`cam_href`) |
 | 5 | PCLK | JB1 / D14 (`cam_pclk`) |
@@ -143,7 +143,7 @@ Most OV7670 breakouts expose an 18-pin, dual-row header. Match the pins as shown
 | 17 | 3V3 | Pmod 3V3 |
 | 18 | GND | Pmod GND |
 
-Note: SCCB (I2C) pins are not connected in this version. Camera uses power-on defaults, which typically yield RGB565 output suitable for this pipeline.
+Note: SCCB (I2C) pins are now driven; make sure to wire SIO_C to JB9 and SIO_D to JB10 (or update the XDC + wiring to match your board silk). The SCCB init programs the camera for full-range RGB565 with AGC/AEC/AWB enabled.
 
 ## LED Status Indicators (planned)
 

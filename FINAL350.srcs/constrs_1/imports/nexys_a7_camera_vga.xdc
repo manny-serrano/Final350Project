@@ -23,6 +23,9 @@ set_property -dict {PACKAGE_PIN G16 IOSTANDARD LVCMOS33} [get_ports {cam_vsync}]
 set_property -dict {PACKAGE_PIN H14 IOSTANDARD LVCMOS33 SLEW FAST DRIVE 8} [get_ports {cam_xclk}]
 set_property -dict {PACKAGE_PIN E16 IOSTANDARD LVCMOS33} [get_ports {cam_reset}]
 set_property -dict {PACKAGE_PIN F13 IOSTANDARD LVCMOS33} [get_ports {cam_pwdn}]
+# SCCB (I2C/SIO_C, SIO_D) on remaining JB I/O — verify against board silk
+set_property -dict {PACKAGE_PIN G13 IOSTANDARD LVCMOS33} [get_ports {cam_sioc}]
+set_property -dict {PACKAGE_PIN G15 IOSTANDARD LVCMOS33} [get_ports {cam_siod}]
 
 ## VGA outputs
 set_property -dict {PACKAGE_PIN A3 IOSTANDARD LVCMOS33} [get_ports {vga_r[0]}]
