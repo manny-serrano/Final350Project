@@ -123,6 +123,7 @@ module camera_sccb_init #(
             phase        <= 2'd0;
             bit_idx      <= 5'd0;
             powerup_wait <= 8'd0;
+            cur_word     <= table[0];
         end else if (done) begin
             // hold lines released
             scl_oe <= 1'b0;
@@ -192,8 +193,8 @@ module camera_sccb_init #(
                     if (idx == NUM_WRITES-1) begin
                         state <= ST_DONE;
                     end else begin
-                        idx    <= idx + 1'b1;
-                        state  <= ST_START;
+                        idx      <= idx + 1'b1;
+                        state    <= ST_START;
                         cur_word <= table[idx + 1'b1];
                     end
                 end
@@ -207,14 +208,5 @@ module camera_sccb_init #(
         end
     end
 
-    // Load first word once reset wait finishes
-    always @(posedge clk) begin
-        if (reset) begin
-            cur_word <= table[0];
-        end else if (state == ST_RESET_WAIT && powerup_wait == 8'd254) begin
-            cur_word <= table[0];
-            idx      <= 6'd0;
-        end
-    end
 endmodule
 

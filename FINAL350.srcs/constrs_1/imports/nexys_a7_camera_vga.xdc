@@ -24,8 +24,9 @@ set_property -dict {PACKAGE_PIN H14 IOSTANDARD LVCMOS33 SLEW FAST DRIVE 8} [get_
 set_property -dict {PACKAGE_PIN E16 IOSTANDARD LVCMOS33} [get_ports {cam_reset}]
 set_property -dict {PACKAGE_PIN F13 IOSTANDARD LVCMOS33} [get_ports {cam_pwdn}]
 # SCCB (I2C/SIO_C, SIO_D) on remaining JB I/O — verify against board silk
+# Common Nexys A7 mapping: JB9 = G13, JB10 = H15
 set_property -dict {PACKAGE_PIN G13 IOSTANDARD LVCMOS33} [get_ports {cam_sioc}]
-set_property -dict {PACKAGE_PIN G15 IOSTANDARD LVCMOS33} [get_ports {cam_siod}]
+set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports {cam_siod}]
 
 ## VGA outputs
 set_property -dict {PACKAGE_PIN A3 IOSTANDARD LVCMOS33} [get_ports {vga_r[0]}]
@@ -66,13 +67,13 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]
 
 ## Generated clocks from MMCME2
 create_generated_clock -name clk_40mhz -source [get_ports clk_100mhz] \
-    -multiply_by 2 -divide_by 5 [get_pins {top_camera_vga/u_clock_gen/mmcm_inst/CLKOUT0}]
+    [get_nets clk_40mhz]
 
 create_generated_clock -name clk_24mhz -source [get_ports clk_100mhz] \
-    -multiply_by 12 -divide_by 50 [get_pins {top_camera_vga/u_clock_gen/mmcm_inst/CLKOUT1}]
+    [get_nets clk_24mhz]
 
 create_generated_clock -name clk_25mhz -source [get_ports clk_100mhz] \
-    -divide_by 4 [get_pins {top_camera_vga/u_clock_gen/mmcm_inst/CLKOUT2}]
+    [get_nets clk_25mhz]
 
 ## Clock domain isolation between camera pixel clock and internal clocks
 set_clock_groups -asynchronous \
